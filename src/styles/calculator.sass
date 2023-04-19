@@ -1,0 +1,26 @@
+body
+  --bg-color: rgba(107, 141, 219, 0.2)
+  --primary-color: rgb(255, 255, 255)
+  --secondary-color: rgb(107, 141, 219)
+  --accent-color: rgb(240, 153, 53)
+  --main-text: rgb(70, 70, 70)
+  --highlight-text: #cc4c77
+  --toggle-wrapper: rgb(59, 59, 59)
+  &.dark
+    --bg-color: rgb(22, 22, 22)
+    --primary-color: rgb(39, 39, 39)
+    --main-text: rgb(231, 231, 231)
+    .calculator
+      box-shadow: none
+    .output
+      border-bottom: 1px solid rgb(70, 70, 70)
+    footer
+      color: rgb(210, 210, 210)
+.column-span-2
+  grid-column: span 2
+.calculator
+  background-color: var(--primary-color)
+  border-radius: 20px
+  overflow: hidden
+  box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px
+  min-width: 400px

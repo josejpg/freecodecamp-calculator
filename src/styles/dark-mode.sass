@@ -1,0 +1,42 @@
+// toggle theme
+$toggle-wrapper-width: 6rem
+$toggle-wrapper-height: 3rem
+$toggle-circle: 1.9rem
+$toggle-circle-left: 0.5rem
+$toggle-circle-offset: calc($toggle-wrapper-width - $toggle-circle-left * 2 - $toggle-circle)
+
+.toggle-wrapper
+  position: relative
+  background-color: var(--toggle-wrapper)
+  width: $toggle-wrapper-width
+  height: $toggle-wrapper-height
+  margin: 1rem auto
+  border-radius: 50px
+  .toggle-checkbox, .toggle-label
+    width: 100%
+    height: 100%
+  .toggle-checkbox
+    position: absolute
+    -webkit-appearance: none
+    appearance: none
+    cursor: pointer
+    user-select: none
+  .toggle-label
+    display: flex
+    justify-content: space-around
+    align-items: center
+    &::after
+      content: ''
+      width: $toggle-circle
+      height: $toggle-circle
+      position: absolute
+      left: $toggle-circle-left
+      background-color: var(--secondary-color)
+      border-radius: 50%
+      transition: transform 0.3s linear
+      cursor: pointer
+    svg
+      color: var(--accent-color)
+      font-size: 1.4rem
+  .toggle-checkbox:checked + .toggle-label::after
+    transform: translateX($toggle-circle-offset)

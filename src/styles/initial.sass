@@ -1,0 +1,44 @@
+*, *::after, *::before
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+html
+  font-size: 62.5%
+
+body
+  --bg-color: rgba(107, 141, 219, 0.2)
+  --primary-color: rgb(255, 255, 255)
+  --secondary-color: rgb(107, 141, 219)
+  --accent-color: rgb(240, 153, 53)
+  --main-text: rgb(70, 70, 70)
+  --highlight-text: #cc4c77
+  --toggle-wrapper: rgb(59, 59, 59)
+  font-weight: 500
+  display: grid
+  place-items: center
+  gap: 4rem
+  transition: background 0.3s linear
+  background: var(--bg-color)
+  padding-top: 4rem
+  font-size: 1.6rem
+  width: 100%
+  min-height: 100vh
+
+input,
+button,
+select
+  font: inherit
+
+
+button
+  background-color: transparent
+  color: inherit
+  border: none
+  cursor: pointer
+
+
+a
+  text-decoration: none
+  display: inline-block
+  color: inherit
