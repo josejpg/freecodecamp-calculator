@@ -1,4 +1,4 @@
-import { EventInterface } from "./event.interface";
+import { ActionInterface } from "./action.interface";
 
-export interface EventCleanCalcInterface extends EventInterface {
+export interface EventCleanCalcInterface extends ActionInterface {
 }

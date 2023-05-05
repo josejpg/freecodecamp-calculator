@@ -1,5 +1,5 @@
-import { EventInterface } from "./event.interface";
+import { ActionInterface } from "./action.interface";
 
-export interface EventAddSymbolInterface extends EventInterface {
-    operation: string,
+export interface EventAddSymbolInterface extends ActionInterface {
+    operator: string,
 }

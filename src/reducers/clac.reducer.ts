@@ -1,5 +1,5 @@
 import { StateType } from "../types/state.type";
-import { ADD_NUMBER, ADD_OPERATOR, CLEAN_CALC, DO_CALCS } from "../events/consts";
+import { ADD_NUMBER, ADD_OPERATOR, CLEAN_CALC, DO_CALCS } from "../consts/actions";
 
 const initialState: StateType = {
     operations: [],
@@ -23,13 +23,20 @@ const calculation = (operations: any[]): string => {
                 return currValue;
         }
     }
+    let prevNumber: number = 0;
     let currOperation: string = '';
-    return operations.reduce((prev: string|number, curr: string|number) => {
-        if (Number.isInteger(curr) && Number.isInteger(prev)) {
-            return reduceOperation(currOperation, Number(prev), Number(curr));
+    return operations.reduce((prev: any, curr: string|number) => {
+        if (Number(curr) === curr) {
+            curr = Number(curr);
+            if (prevNumber === 0) {
+                prevNumber = curr;
+            } else {
+                prevNumber = reduceOperation(currOperation, prevNumber, curr);
+            }
+        } else {
+            currOperation = String(curr);
         }
-        currOperation = String(curr);
-        return prev;
+        return prevNumber;
     }, '');
 }
 const calcReducer = (state: StateType = initialState, action: any) => {
@@ -38,14 +45,13 @@ const calcReducer = (state: StateType = initialState, action: any) => {
             return {
                 ...state,
                 operations: [...state.operations, action.number],
-                history: `${state.history} ${action.number}`,
-                display: calculation([...state.operations, action.number])
+                history: `${state.history} ${action.number}`
             };
         case ADD_OPERATOR:
             return {
                 ...state,
                 operations: [...state.operations, action.operator],
-                history: `${state.history} ${action.operator}`,
+                history: `${state?.history} ${action.operator}`,
             };
         case DO_CALCS:
             return {

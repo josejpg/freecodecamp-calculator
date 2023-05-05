@@ -1,5 +1,5 @@
-import { EventInterface } from "./event.interface";
+import { ActionInterface } from "./action.interface";
 
-export interface EventAddNumberInterface extends EventInterface {
+export interface EventAddNumberInterface extends ActionInterface {
     number: number,
 }

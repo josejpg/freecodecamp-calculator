@@ -1,5 +1,5 @@
 import { StateType } from "../types/state.type";
-import { addNumberEvent, addOperationEvent, cleanCalcEvent, doCalcEvent } from "../events/events";
+import { addNumberEvent, addOperationEvent, cleanCalcEvent, doCalcEvent } from "../actions/actions";
 
 const mapStateToProps = (state: StateType) => {
     return {
